@@ -1,0 +1,8 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "pooja-creation",
+  "compatibility_date": "2026-09-30",
+  "observability": {
+    "enabled": true
+  }
+}
