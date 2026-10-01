@@ -1,6 +1,5 @@
 import Link from "next/link";
 import OrderForm from "../components/OrderForm";
-import { getCategories } from "../sanity/lib/client";
 
 const WHATSAPP_NUMBER = "9572255001";
 
@@ -75,20 +74,9 @@ const categories = [
   "Kanjak Hamper",
 ];
 
-export default async function Home() {
-  const cmsCategories = await getCategories();
-  const usesCmsCatalog = cmsCategories.length > 0;
-  const displayCollections = usesCmsCatalog
-    ? cmsCategories.map((item) => ({
-        ...item,
-        image: item.image || "poster-reference.jpg",
-        alt: item.imageAlt || item.title,
-        action: item.actionLabel || "View products",
-      }))
-    : collections;
-  const orderCategories = usesCmsCatalog
-    ? cmsCategories.map((item) => item.title)
-    : categories;
+export default function Home() {
+  const displayCollections = collections;
+  const orderCategories = categories;
 
   return (
     <>
@@ -144,9 +132,7 @@ export default async function Home() {
                   "Dry Fruit Box": { href: "/dry-fruit-box", label: "View Dry Fruit Box products" },
                   "Kanjak Hamper": { href: "/kanjak-hamper", label: "View Kanjak Hamper products" },
                 }[item.title];
-                const href = usesCmsCatalog
-                  ? `/collections/${item.slug}`
-                  : detailPage.href;
+                const href = detailPage.href;
 
                 return (
                   <Link className="card" key={item.title} href={href} aria-label={`View ${item.title} products`}>
