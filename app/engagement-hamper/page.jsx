@@ -1,9 +1,9 @@
 import Link from "next/link";
 
 const products = [
-  { name: "EGAGEMENT", price: "₹2,499", image: "anisery (1).jpg" },
-  { name: "EGAGEMENT", price: "₹3,199", image: "anisery (2).jpg" },
-  { name: "EGAGEMENT PACK", price: "₹2,899", image: "anisery (3).jpg" }
+  { name: "EGAGEMENT", price: "₹", image: "anisery (1).jpg" },
+  { name: "EGAGEMENT", price: "₹", image: "anisery (2).jpg" },
+  { name: "EGAGEMENT PACK", price: "₹", image: "anisery (3).jpg" }
 ];
 
 export const metadata = {

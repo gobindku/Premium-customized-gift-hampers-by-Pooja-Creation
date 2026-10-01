@@ -1,10 +1,10 @@
 import Link from "next/link";
 
 const products = [
-  { name: "Rose & Chocolate Combo", price: "₹1,899", image: " rose (1).jpg" },
-  { name: "Premium Rose Bouquet", price: "₹2,249", image: " rose (2).jpg" },
-  { name: "Sweet Valentine Pack", price: "₹1,499", image: " rose (3).jpg" },
-  { name: "Love Bloom Basket", price: "₹2,599", image: " rose (4).jpg" },
+  { name: "Rose & Chocolate Combo", price: "₹", image: " rose (1).jpg" },
+  { name: "Premium Rose Bouquet", price: "₹", image: " rose (2).jpg" },
+  { name: "Sweet Valentine Pack", price: "₹", image: " rose (3).jpg" },
+  { name: "Love Bloom Basket", price: "₹", image: " rose (4).jpg" },
   
 ];
 

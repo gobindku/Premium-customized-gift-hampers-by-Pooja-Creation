@@ -1,8 +1,8 @@
 import Link from "next/link";
 
 const products = [
-  { name: "Premium Dry Fruit Box", price: "₹2,499", image: "fruit1.jpg" },
-  { name: "Festive Nut Gift Box", price: "₹1,799", image: "fruit2.jpg" },
+  { name: "Premium Dry Fruit Box", price: "₹", image: "fruit1.jpg" },
+  { name: "Festive Nut Gift Box", price: "₹", image: "fruit2.jpg" },
  
 ];
 

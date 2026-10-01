@@ -1,9 +1,9 @@
 import Link from "next/link";
 
 const products = [
-  { name: "Golden Memory Box", price: "₹2,399", image: " anni (1).jpg" },
-  { name: "Romantic Couple Set", price: "₹2,999", image: " anni (2).jpg" },
-  { name: "Forever Love Hamper", price: "₹2,699", image: " anni (3).jpg"},
+  { name: "Golden Memory Box", price: "₹", image: " anni (1).jpg" },
+  { name: "Romantic Couple Set", price: "₹", image: " anni (2).jpg" },
+  { name: "Forever Love Hamper", price: "₹", image: " anni (3).jpg"},
 ];
 
 export const metadata = {
