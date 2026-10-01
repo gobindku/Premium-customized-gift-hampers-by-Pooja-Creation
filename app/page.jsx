@@ -117,7 +117,7 @@ export default async function Home() {
               </div>
             </div>
             <div className="hero-card">
-              <img src="/assets/poster-reference.jpg" alt="Pooja Creation gift hamper collection" />
+              <img src="/assets/icon.jpg" alt="Pooja Creation brand logo" />
               <div className="badge">Premium presentation · Personal touch</div>
             </div>
           </div>
@@ -177,7 +177,7 @@ export default async function Home() {
               </div>
             </div>
             <div className="story-box story-image">
-              <img src="/assets/poster-reference.jpg" alt="Pooja Creation gift collection" />
+              <img src="/assets/icon.jpg" alt="Pooja Creation brand logo" />
             </div>
           </div>
         </section>
