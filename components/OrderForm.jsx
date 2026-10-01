@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 
-const WHATSAPP_NUMBER = "9341567437";
+const WHATSAPP_NUMBER = "9572255001";
 const budgets = ["Under ₹1,000", "₹1,000 – ₹2,000", "₹2,000 – ₹3,500", "₹3,500+", "I'll discuss"];
 
 export default function OrderForm({ categories }) {

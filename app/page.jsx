@@ -1,7 +1,7 @@
 import Link from "next/link";
 import OrderForm from "../components/OrderForm";
 
-const WHATSAPP_NUMBER = "9572255001";
+const WHATSAPP_NUMBER = "919572255001";
 
 const collections = [
   {
