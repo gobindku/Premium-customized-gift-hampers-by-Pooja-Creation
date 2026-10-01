@@ -4,7 +4,7 @@
   "private": true,
   "allowScripts": {
     "esbuild": true,
-    "next": true
+    "wrangler": true
   },
   "scripts": {
     "dev": "next dev",
