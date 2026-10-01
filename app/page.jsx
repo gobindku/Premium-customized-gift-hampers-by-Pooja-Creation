@@ -1,7 +1,6 @@
-"use client";
-
-import { useState } from "react";
 import Link from "next/link";
+import OrderForm from "../components/OrderForm";
+import { getCategories } from "../sanity/lib/client";
 
 const WHATSAPP_NUMBER = "9341567437";
 
@@ -76,63 +75,20 @@ const categories = [
   "Kanjak Hamper",
 ];
 
-const budgets = [
-  "Under ₹1,000",
-  "₹1,000 – ₹2,000",
-  "₹2,000 – ₹3,500",
-  "₹3,500+",
-  "I'll discuss",
-];
-
-export default function Home() {
-  const [category, setCategory] = useState("Birthday Hamper");
-  const [toastVisible, setToastVisible] = useState(false);
-
-  function selectCollection(item) {
-    setCategory(item.category || item.title);
-    document.getElementById("order")?.scrollIntoView({ behavior: "smooth" });
-  }
-
-  function handleCollectionKeyDown(event, item) {
-    if (event.key === "Enter" || event.key === " ") {
-      event.preventDefault();
-      selectCollection(item);
-    }
-  }
-
-  function handleSubmit(event) {
-    event.preventDefault();
-    const values = new FormData(event.currentTarget);
-    const value = (key) => String(values.get(key) || "").trim();
-    const message = `Hello Pooja Creation! 💝
-
-I'd like to place an order.
-
-Name: ${value("name")}
-Phone: ${value("phone")}
-Hamper: ${value("category")}
-Budget: ${value("budget")}
-Required date: ${value("date") || "To discuss"}
-Theme / color: ${value("theme") || "Open to suggestions"}
-
-Requirements:
-${value("message") || "Please share available options."}
-
-Please share the final price and available customization options. Thank you!`;
-
-    if (WHATSAPP_NUMBER.includes("X")) {
-      window.alert("Please replace WHATSAPP_NUMBER with your business WhatsApp number.");
-      return;
-    }
-
-    window.open(
-      `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`,
-      "_blank",
-      "noopener,noreferrer",
-    );
-    setToastVisible(true);
-    window.setTimeout(() => setToastVisible(false), 3000);
-  }
+export default async function Home() {
+  const cmsCategories = await getCategories();
+  const usesCmsCatalog = cmsCategories.length > 0;
+  const displayCollections = usesCmsCatalog
+    ? cmsCategories.map((item) => ({
+        ...item,
+        image: item.image || "poster-reference.jpg",
+        alt: item.imageAlt || item.title,
+        action: item.actionLabel || "View products",
+      }))
+    : collections;
+  const orderCategories = usesCmsCatalog
+    ? cmsCategories.map((item) => item.title)
+    : categories;
 
   return (
     <>
@@ -177,7 +133,7 @@ Please share the final price and available customization options. Thank you!`;
               <p>Each category is kept separate so customers can browse the exact kind of gift they need and send an order request directly to WhatsApp.</p>
             </div>
             <div className="grid">
-              {collections.map((item) => {
+              {displayCollections.map((item) => {
                 const detailPage = {
                   "Birthday Hamper": { href: "/birthday-hamper", label: "View Birthday Hamper products" },
                   "Engagement Hamper": { href: "/engagement-hamper", label: "View Engagement Hamper products" },
@@ -188,26 +144,19 @@ Please share the final price and available customization options. Thank you!`;
                   "Dry Fruit Box": { href: "/dry-fruit-box", label: "View Dry Fruit Box products" },
                   "Kanjak Hamper": { href: "/kanjak-hamper", label: "View Kanjak Hamper products" },
                 }[item.title];
-                const Card = detailPage ? Link : "article";
-                const cardProps = detailPage
-                  ? { href: detailPage.href, "aria-label": detailPage.label }
-                  : {
-                      onClick: () => selectCollection(item),
-                      onKeyDown: (event) => handleCollectionKeyDown(event, item),
-                      role: "button",
-                      tabIndex: 0,
-                      "aria-label": `Select ${item.title}`,
-                    };
+                const href = usesCmsCatalog
+                  ? `/collections/${item.slug}`
+                  : detailPage.href;
 
                 return (
-                  <Card className="card" key={item.title} {...cardProps}>
-                    <img src={`/assets/${item.image}`} alt={item.alt} />
+                  <Link className="card" key={item.title} href={href} aria-label={`View ${item.title} products`}>
+                    <img src={item.image.startsWith("http") ? item.image : `/assets/${item.image}`} alt={item.alt} />
                     <div className="card-body">
                       <h3>{item.title}</h3>
                       <p>{item.description}</p>
                       <div className="mini">{item.action} →</div>
                     </div>
-                  </Card>
+                  </Link>
                 );
               })}
             </div>
@@ -242,30 +191,7 @@ Please share the final price and available customization options. Thank you!`;
               <p className="small">Replace the WhatsApp number in the page source with your business number before publishing.</p>
               <a className="btn btn-light" href="https://instagram.com/pooja._creation37" target="_blank" rel="noopener noreferrer">Instagram · @pooja._creation37</a>
             </div>
-            <form onSubmit={handleSubmit}>
-              <div className="row">
-                <div><label htmlFor="name">Your name</label><input id="name" name="name" required placeholder="e.g. Priya" /></div>
-                <div><label htmlFor="phone">Your phone</label><input id="phone" name="phone" required placeholder="e.g. 98765 43210" /></div>
-              </div>
-              <div className="row">
-                <div>
-                  <label htmlFor="category">Hamper category</label>
-                  <select id="category" name="category" value={category} onChange={(event) => setCategory(event.target.value)}>
-                    {categories.map((item) => <option key={item}>{item}</option>)}
-                  </select>
-                </div>
-                <div>
-                  <label htmlFor="budget">Approx. budget</label>
-                  <select id="budget" name="budget">{budgets.map((item) => <option key={item}>{item}</option>)}</select>
-                </div>
-              </div>
-              <div className="row">
-                <div><label htmlFor="date">Required date</label><input id="date" name="date" type="date" /></div>
-                <div><label htmlFor="theme">Theme / color</label><input id="theme" name="theme" placeholder="e.g. pink & white" /></div>
-              </div>
-              <div><label htmlFor="message">Message / special requirements</label><textarea id="message" name="message" placeholder="Recipient name, items you want, delivery area, card message, etc." /></div>
-              <button className="btn btn-primary" type="submit">Continue on WhatsApp →</button>
-            </form>
+            <OrderForm categories={orderCategories} />
           </div>
         </section>
       </main>
@@ -276,7 +202,6 @@ Please share the final price and available customization options. Thank you!`;
           <a className="ig" href="https://instagram.com/pooja._creation37" target="_blank" rel="noopener noreferrer">@pooja._creation37</a>
         </div>
       </footer>
-      <div className={`toast${toastVisible ? " toast-visible" : ""}`} role="status" aria-live="polite">WhatsApp message prepared.</div>
     </>
   );
 }

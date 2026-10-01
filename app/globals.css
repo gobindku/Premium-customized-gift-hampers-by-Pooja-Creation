@@ -67,6 +67,11 @@ h2 { font-family: Georgia, serif; font-size: clamp(32px, 4vw, 50px); line-height
 .product-card h3 { margin: 0; font-family: Georgia, serif; font-size: clamp(18px, 2vw, 20px); }
 .product-price { flex: 0 0 auto; color: var(--rose); font-weight: 900; }
 .product-order { margin-top: 34px; }
+.catalog-empty { padding: 24px; background: #fff; border: 1px solid var(--line); border-radius: 16px; color: var(--muted); }
+.product-description { margin: 0; padding: 0 18px 18px; color: var(--muted); font-size: 14px; }
+.studio-setup { max-width: 640px; margin: 12vh auto; padding: 32px; color: var(--ink); font-family: ui-sans-serif, system-ui, sans-serif; }
+.studio-setup h1 { font-size: 32px; line-height: 1.1; }
+.studio-setup p { color: var(--muted); }
 .story { background: #fff4f6; border-block: 1px solid #f1dce2; }
 .story-grid { display: grid; grid-template-columns: .8fr 1.2fr; gap: 28px; align-items: stretch; }
 .story-box { background: white; border: 1px solid var(--line); border-radius: 26px; padding: clamp(22px, 4vw, 34px); }
