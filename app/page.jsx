@@ -2,7 +2,7 @@ import Link from "next/link";
 import OrderForm from "../components/OrderForm";
 import { getCategories } from "../sanity/lib/client";
 
-const WHATSAPP_NUMBER = "9341567437";
+const WHATSAPP_NUMBER = "9572255001";
 
 const collections = [
   {
