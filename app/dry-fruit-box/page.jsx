@@ -1,12 +1,9 @@
 import Link from "next/link";
 
 const products = [
-  { name: "Premium Dry Fruit Box", price: "₹2,499", image: "dry-fruit.jpg" },
-  { name: "Festive Nut Gift Box", price: "₹1,799", image: "customize.jpg" },
-  { name: "Royal Dry Fruit Set", price: "₹2,999", image: "engagement.jpg" },
-  { name: "Classic Celebration Box", price: "₹2,199", image: "anniversary.jpg" },
-  { name: "Luxury Health Hamper", price: "₹2,699", image: "birthday.jpg" },
-  { name: "Thoughtful Gift Box", price: "₹1,999", image: "love.jpg" },
+  { name: "Premium Dry Fruit Box", price: "₹2,499", image: "fruit1.jpg" },
+  { name: "Festive Nut Gift Box", price: "₹1,799", image: "fruit2.jpg" },
+ 
 ];
 
 export const metadata = {

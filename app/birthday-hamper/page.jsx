@@ -8,6 +8,11 @@ const products = [
   { name: "Cute Birthday Gift Hamper", price: "₹99", image: "birthday-cute-rs99.png" },
   { name: "Mini Hamper", price: "₹450", image: "birthday-rs450.png" },
   { name: "Mini Hamper", price: "₹299", image: "birthday-rs299.png" },
+    { name: "Birthday SPECIAL", price: "₹249", image: "bd.jpg" },
+  { name: "Birthday SPECIAL", price: "₹249", image: "bd1.jpg" },
+  { name: "Birthday SPECIA", price: "₹249", image: "bd2.jpg" },
+  { name: "Birthday SPECIA", price: "₹249", image: "bd3.jpg" },
+  
 ];
 
 export const metadata = {

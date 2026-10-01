@@ -1,12 +1,9 @@
 import Link from "next/link";
 
 const products = [
-  { name: "Golden Memory Box", price: "₹2,399", image: "anniversary.jpg" },
-  { name: "Romantic Couple Set", price: "₹2,999", image: "love.jpg" },
-  { name: "Forever Love Hamper", price: "₹2,699", image: "customize.jpg" },
-  { name: "Celebration Keepsake", price: "₹3,299", image: "chocolate-rose.jpg" },
-  { name: "Anniversary Sweet Surprise", price: "₹1,899", image: "birthday.jpg" },
-  { name: "Love Story Gift Box", price: "₹2,799", image: "engagement.jpg" },
+  { name: "Golden Memory Box", price: "₹2,399", image: " anni (1).jpg" },
+  { name: "Romantic Couple Set", price: "₹2,999", image: " anni (2).jpg" },
+  { name: "Forever Love Hamper", price: "₹2,699", image: " anni (3).jpg"},
 ];
 
 export const metadata = {

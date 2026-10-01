@@ -1,12 +1,11 @@
 import Link from "next/link";
 
 const products = [
-  { name: "Rose & Chocolate Combo", price: "₹1,899", image: "chocolate-rose.jpg" },
-  { name: "Premium Rose Bouquet", price: "₹2,249", image: "love.jpg" },
-  { name: "Sweet Valentine Pack", price: "₹1,499", image: "birthday.jpg" },
-  { name: "Love Bloom Basket", price: "₹2,599", image: "anniversary.jpg" },
-  { name: "Luxury Gift Box", price: "₹2,199", image: "customize.jpg" },
-  { name: "Chocolate Romance Set", price: "₹1,799", image: "engagement.jpg" },
+  { name: "Rose & Chocolate Combo", price: "₹1,899", image: " rose (1).jpg" },
+  { name: "Premium Rose Bouquet", price: "₹2,249", image: " rose (2).jpg" },
+  { name: "Sweet Valentine Pack", price: "₹1,499", image: " rose (3).jpg" },
+  { name: "Love Bloom Basket", price: "₹2,599", image: " rose (4).jpg" },
+  
 ];
 
 export const metadata = {
