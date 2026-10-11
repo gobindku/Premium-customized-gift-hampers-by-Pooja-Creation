@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import CatalogProductGrid from "../../../components/CatalogProductGrid";
 
 const collectionCatalog = {
   "birthday-hamper": {
@@ -131,21 +132,7 @@ export default async function CollectionPage({ params }) {
             <h1>{category.title}</h1>
             <p>{category.description}</p>
           </div>
-          {products.length ? (
-            <div className="product-grid">
-              {products.map((product, index) => (
-                <article className="product-card" key={`${category.title}-${index}`}>
-                  <img src={product.image.startsWith("http") ? product.image : `/assets/${product.image}`} alt={`${product.name}, ${product.price}`} />
-                  <div className="product-card-info">
-                    <h3>{product.name}</h3>
-                    <span className="product-price">{product.price}</span>
-                  </div>
-                </article>
-              ))}
-            </div>
-          ) : (
-            <p className="catalog-empty">Products in this collection will be added soon.</p>
-          )}
+          <CatalogProductGrid categorySlug={slug} initialProducts={products} />
           <div className="product-order">
             <Link className="btn btn-primary" href="/#order">Ask about this collection</Link>
           </div>

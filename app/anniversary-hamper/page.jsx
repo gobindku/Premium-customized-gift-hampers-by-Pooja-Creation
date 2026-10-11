@@ -1,4 +1,5 @@
 import Link from "next/link";
+import CatalogProductGrid from "../../components/CatalogProductGrid";
 
 const products = [
   { name: "Golden Memory Box", price: "₹", image: " anni (1).jpg" },
@@ -35,17 +36,7 @@ export default function AnniversaryHamperPage() {
             <p>Sentimental gifts designed to celebrate love, togetherness and unforgettable memories with elegant presentation.</p>
           </div>
 
-          <div className="product-grid">
-            {products.map((product) => (
-              <article className="product-card" key={product.image + product.name}>
-                <img src={`/assets/${product.image}`} alt={product.name} />
-                <div className="product-card-info">
-                  <h3>{product.name}</h3>
-                  <span className="product-price">{product.price}</span>
-                </div>
-              </article>
-            ))}
-          </div>
+          <CatalogProductGrid categorySlug="anniversary-hamper" initialProducts={products} />
 
           <div className="product-order">
             <Link className="btn btn-primary" href="/#order">Customize an anniversary hamper</Link>

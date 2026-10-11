@@ -1,4 +1,5 @@
 import Link from "next/link";
+import CatalogProductGrid from "../../components/CatalogProductGrid";
 
 const products = [
   { name: "Kanjak Snack & Stationery Hamper", image: "kanjak-gift-hamper.jpg" },
@@ -34,14 +35,7 @@ export default function KanjakHamperPage() {
             <h1>Kanjak Hampers</h1>
             <p>Thoughtfully arranged gifts for Kanjak, filled with festive treats and little keepsakes to make the occasion special.</p>
           </div>
-          <div className="product-grid">
-            {products.map((product) => (
-              <article className="product-card" key={product.image}>
-                <img src={`/assets/${product.image}`} alt={product.name} />
-                <h3>{product.name}</h3>
-              </article>
-            ))}
-          </div>
+          <CatalogProductGrid categorySlug="kanjak-hamper" initialProducts={products} />
           <div className="product-order">
             <Link className="btn btn-primary" href="/#order">Customize a Kanjak hamper</Link>
           </div>

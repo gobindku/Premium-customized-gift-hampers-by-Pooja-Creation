@@ -1,4 +1,5 @@
 import Link from "next/link";
+import CatalogProductGrid from "../../components/CatalogProductGrid";
 
 const products = [
   { name: "Rose & Chocolate Combo", price: "₹", image: " rose (1).jpg" },
@@ -37,17 +38,7 @@ export default function ChocolateRosePage() {
             <p>Fresh florals and delicious sweetness blended into elegant surprise boxes for a heartfelt gift.</p>
           </div>
 
-          <div className="product-grid">
-            {products.map((product) => (
-              <article className="product-card" key={product.image + product.name}>
-                <img src={`/assets/${product.image}`} alt={product.name} />
-                <div className="product-card-info">
-                  <h3>{product.name}</h3>
-                  <span className="product-price">{product.price}</span>
-                </div>
-              </article>
-            ))}
-          </div>
+          <CatalogProductGrid categorySlug="chocolate-rose" initialProducts={products} />
 
           <div className="product-order">
             <Link className="btn btn-primary" href="/#order">Order this combo</Link>

@@ -1,4 +1,5 @@
 import Link from "next/link";
+import CatalogProductGrid from "../../components/CatalogProductGrid";
 
 const products = [
   { name: "Personalized Surprise Box", price: "₹1,999", image: "customize.jpg" },
@@ -38,17 +39,7 @@ export default function CustomHamperPage() {
             <p>Tell us your theme, budget, colors and favorite add-ons, and we’ll design a hamper that feels truly yours.</p>
           </div>
 
-          <div className="product-grid">
-            {products.map((product) => (
-              <article className="product-card" key={product.image + product.name}>
-                <img src={`/assets/${product.image}`} alt={product.name} />
-                <div className="product-card-info">
-                  <h3>{product.name}</h3>
-                  <span className="product-price">{product.price}</span>
-                </div>
-              </article>
-            ))}
-          </div>
+          <CatalogProductGrid categorySlug="custom-hamper" initialProducts={products} />
 
           <div className="product-order">
             <Link className="btn btn-primary" href="/#order">Build my custom hamper</Link>

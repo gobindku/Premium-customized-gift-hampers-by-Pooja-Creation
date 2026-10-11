@@ -1,4 +1,5 @@
 import Link from "next/link";
+import CatalogProductGrid from "../../components/CatalogProductGrid";
 
 const products = [
   { name: "Premium Dry Fruit Box", price: "₹", image: "fruit1.jpg" },
@@ -35,17 +36,7 @@ export default function DryFruitBoxPage() {
             <p>Classic, premium and thoughtful gift boxes packed with rich flavors and elegant presentation for celebratory moments.</p>
           </div>
 
-          <div className="product-grid">
-            {products.map((product) => (
-              <article className="product-card" key={product.image + product.name}>
-                <img src={`/assets/${product.image}`} alt={product.name} />
-                <div className="product-card-info">
-                  <h3>{product.name}</h3>
-                  <span className="product-price">{product.price}</span>
-                </div>
-              </article>
-            ))}
-          </div>
+          <CatalogProductGrid categorySlug="dry-fruit-box" initialProducts={products} />
 
           <div className="product-order">
             <Link className="btn btn-primary" href="/#order">Customize a dry fruit box</Link>
